@@ -43,6 +43,8 @@ sudo cp -R /var/www/hope/configurations/nginx/conf.d /etc/nginx/conf.d
 
 sudo service nginx restart
 
+mysql -u hope -p hope < /var/www/sqldump/default.sql
+
 cd /var/www/hope
 
 # start fpm

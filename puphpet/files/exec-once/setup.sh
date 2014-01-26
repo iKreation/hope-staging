@@ -47,7 +47,7 @@ sudo service php5-fpm restart
 
 sudo service nginx restart
 
-mysql -u hope -p hope < /var/www/sqldump/default.sql
+mysql -u hope --password=extintor hope < /var/www/sqldump/default.sql
 
 cd /var/www/hope
 

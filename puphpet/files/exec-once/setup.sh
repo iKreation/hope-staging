@@ -29,10 +29,6 @@ easy_install -U distribute
 # install dependencies
 sudo pip install -r dependencies.txt
 
-# migrate the database
-
-# seed the database
-
 # configure nginx and php5-fpm for cdn
 sudo rm -R /etc/nginx/conf.d
 sudo cp -R /var/www/hope/configurations/nginx/conf.d /etc/nginx/conf.d
@@ -47,10 +43,20 @@ sudo service php5-fpm restart
 
 sudo service nginx restart
 
+# seed database
 mysql -u hope --password=extintor hope < /var/www/sqldump/default.sql
 
 cd /var/www/hope
 
+# sync
+python manage.py syncdb
+
+# sync migrations
+python manage.py migrate hopeapp 0001 --fake
+python manage.py migrate hopeapp 
+
 # start fpm
 sh reload.sh
+
+
 

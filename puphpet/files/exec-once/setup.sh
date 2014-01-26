@@ -44,6 +44,7 @@ sudo cp -R /var/www/hope/configurations/php5-fpm/php5 /etc/php5
 # touch /var/www/logs/hope/nginx-access.log
 # touch /var/www/logs/hope/nginx-error.log
 sudo service php5-fpm restart
+
 sudo service nginx restart
 
 mysql -u hope -p hope < /var/www/sqldump/default.sql
